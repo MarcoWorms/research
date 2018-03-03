@@ -1,2 +1,2 @@
-export const initialBoard = ({ builders: field }) =>
+export const initialField = ({ builders: field }) =>
   field()

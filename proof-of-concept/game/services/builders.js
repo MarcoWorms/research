@@ -29,7 +29,7 @@ const borderWallRow = length => [
   X,
 ]
 const field = {
-  name: 'Plain'
+  name: 'Plains'
   shape: [
     wallRow(15),
     borderWallRow(15),
