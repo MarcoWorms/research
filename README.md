@@ -39,7 +39,7 @@ best case I have to compare here is Overwatch, where the short timebox makes
 the game feels much more dynamic than MOBAs where you need the time of about 3
 OWs games.
 
-StS (Slay the Spire) difficulty (ascension) system really shine here. Playing
+StS (Slay the Spire) difficulty (ascension) system really shines here. Playing
 the same game for 30 minutes over and over might be boring, but if every time
 you beat it you can make it harder this adds insane replayability value. StS is
 trending on streams because eventually it gets so hard that it's rare to see
@@ -48,21 +48,21 @@ a strong streaming value.
 
 3. **Heavy abuse of your predictability + probability skills**
 
-Everytime you need to think about a decision you start creating branches of
+Every time you need to think about a decision you start creating branches of
 predictable scenarios inside your brain. This exercises your rational thinking,
 and can be true in different genres. StS for example makes you think a lot when
 adding a card in your deck because you have to take in consideration a lot of
-variables and makes decisions feel relevant, this is a display of
+variables and make decisions feel relevant, this is a display of
 predictability + probability skills. In a bullet hell game if you can't predict
-where you need to be positioned you will probably die miserably, so predicting
+where you need to be positioned, you will probably die miserably, so predicting
 the bullet patterns is a crucial part of the game. 
 
-4. **The game is hard, deal with it**
+4. **The game is hard, deal with it**w
 
 This is just my game style. I don't want to make a game where you will win in
 your first attempt if you never tried any of the games on this list, this
-involves heavy muscle memory or knowing what decision looks shiny but it's
-actually a trap. I think hard games are easier to develop as well becaue I
+involves heavy muscle memory or knowing what decision looks shiny but is
+actually a trap. I think hard games are easier to develop as well because I
 don't need to take in consideration my bias on the game mechanic when balancing
 it, because if i can win it it means it can still get harder and harder.
 
@@ -70,25 +70,25 @@ it, because if i can win it it means it can still get harder and harder.
 
 ### Enter the Gungeon
 
-*The look and feel of this game is really on-spot. It's a really awesome
-bullet-hell expecience overall, probably the best of it's time, featuring tons
+*The look and feel of this game is really spot-on. It's a really awesome
+bullet-hell experience overall, probably the best of its time, featuring tons
 of weapons, enemies, bullet patterns, and good jokes.*
 
 - Dash is free, quick and makes you invincible. This allows bullet patterns to
   force you to dash, and it feels very rewarding when you dash towards a
   position of advantage while dodging a bullet.
 
-- Flipping tables it's fun, but it's kinda clunky to use. I think it's the key
+- Flipping tables is fun, but it's kinda clunky to use. I think it's the key
   binding's fault.
 
-- I don't think I like "keys" as mechanic to open chests. It just makes the
+- I don't think I like "keys" as a mechanic to open chests. It just makes the
   chests less accessible thus the run is less fun. It also sucks that there is
   a class with a bizarre RNG to open chests without keys, I think the "key"
   mechanic is the most unresolved part of this game.
 
 - I don't think they have done ammo correctly. You are forced to use crappy
   guns because if you spend ammo it's quite hard to refill and you can only
-  refill one weapon. It's not fun, it just looke badly resolved.
+  refill one weapon. It's not fun, it just looks badly resolved.
 
 - Reload is completely bad IMO. It forces you to spam mouse clicking because it
   reloads automatically if you click after the ammo finishes, but if you just
