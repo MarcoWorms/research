@@ -1,8 +1,10 @@
-import injectGlobalRamda from './injectGlobalRamda'
+import {
+  map,
+  partial,
+} from 'ramda'
+
 import services from './services'
 import routes from './routes'
-
-injectGlobalRamda()
 
 const bindServices = map(route => partial(route, [services]))
 const boundRoutes = bindServices(routes)

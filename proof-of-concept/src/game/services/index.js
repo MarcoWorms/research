@@ -1,8 +1,8 @@
-import builders from './builders'
+import factories from './factories'
 import rng from './rng'
 
 export default {
-  builders,
+  factories,
   rng,
 }
 
