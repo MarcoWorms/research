@@ -1,16 +1,27 @@
+import {
+	omit,
+} from 'ramda'
 import React, { Component } from 'react'
 import game from './game'
+
+const enemyAt = ({ x, y, enemies }) =>
+	enemies.find(enemy => enemy.x === x && enemy.y === y)
 
 const Field = props =>
   <div style={{
     display: 'flex',
-    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    maxWidth: '70vw',
+    height: '100vh',
   }}>
-    {
+    <div style={{
+			minHeight: '50vh',
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			flexDirection: 'column',
+		}}>{
       props.field.shape.map((row, y) =>
         <div style={{ display: 'flex' }} key={'row' + y}>
           {
@@ -23,6 +34,8 @@ const Field = props =>
                 backgroundColor:
                   props.player.x === x && props.player.y === y
                   ? 'green'
+                  : enemyAt({ x, y, enemies: props.enemies })
+                  ? 'red'
                   : tile.name === 'wall'
                   ? 'black'
                   : '#444444',
@@ -34,7 +47,102 @@ const Field = props =>
           }
         </div>
       )
-    }
+    }</div>
+    <div style={{
+      width: '100%',
+      flex: '1 1 auto',
+      display: 'flex',
+    }}>
+      <div style={{
+        border: 'solid 5px red',
+        boxSizing: 'border-box',
+        width: '20vw',
+        borderRadius: '5px',
+        color: 'red',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 'calc(2vw + 2vh)',
+      }}>
+        {props.player.hp}/{props.player.maxHp}
+      </div>
+      <div style={{
+        border: 'solid 5px yellow',
+        boxSizing: 'border-box',
+        width: '24vw',
+        borderRadius: '5px',
+        fontSize: 'calc(1.5vw + 1.5vh)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+				flexWrap: 'wrap',
+        color: 'yellow',
+      }}>
+				<div style={{
+					width: '24vw',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-around',
+					flexWrap: 'wrap',
+					textAlign: 'center',
+				}}>
+					<span>{props.player.deck[0].name}</span>
+					<div style={{ display: 'flex', flexDirection: 'column' }}>
+						{props.player.deck[0].shape.map((row, y) =>
+						<div style={{ display: 'flex' }}>
+							{row.map((tile, x) =>
+								<div style={{
+									width: '2.5vh',
+									height: '2.5vh',
+									boxSizing: 'border-box',
+									border: 'solid 1px black',
+									backgroundColor:
+									tile === 0 ? 'black'
+									: tile === 1 ? 'green'
+									: tile === 2 ? 'yellow'
+									: null
+								}}>
+								</div>
+							)}
+						</div>
+						)}
+					</div>
+				</div>
+        <span style={{ fontSize: '3vh', color: 'white' }}>
+					Shuffle in: {props.player.deck.length}
+				</span>
+        <span style={{ fontSize: '3vh', color: 'yellow' }}>
+					DMG: {props.player.deck[0].damage}
+				</span>
+      </div>
+      <div style={{
+        borderTop: 'solid 9vh black',
+        borderBottom: 'solid 9vh black',
+        boxSizing: 'border-box',
+        width: '2vw',
+        backgroundColor: 'yellow',
+      }}>
+
+      </div>
+      <div style={{
+        border: 'solid 5px yellow',
+        boxSizing: 'border-box',
+        width: '24vw',
+        display: 'flex',
+        borderRadius: '5px',
+      }}>
+        {Array.from({ length: props.player.deck[0].cost}).map((_, i) =>
+          <div style={{
+            border: 'solid 1px yellow',
+            boxSizing: 'border-box',
+            width: `${100/props.player.deck[0].cost}%`,
+            backgroundColor: i < props.player.energy ? 'yellow' : 'transparent'
+          }}>
+
+          </div>
+        )}
+      </div>
+    </div>
   </div>
 
 const Button = props =>
@@ -46,7 +154,7 @@ const Button = props =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      border: 'solid 2px #111',
+      border: 'solid 1px #111',
       borderRadius: '5px',
       boxSizing: 'border-box',
       width: '100%',
@@ -55,7 +163,7 @@ const Button = props =>
     }}
   >
     <div style={{
-      fontSize: props.big ? 'calc(5vw + 5vh)' : 'calc(2vw + 2vh)',
+      fontSize: props.big ? 'calc(5vw)' : 'calc(4vw)',
       color: !props.selected ? 'yellow' : '#444444',
     }}>
       {props.children}
@@ -78,10 +186,19 @@ class App extends Component {
       direction,
       action: 'move',
     })
+    console.log(this.state)
   }
   attack = direction => {
+		const attack = game.attack(this.state, direction)
+		if (!attack.success) {
+			this.setState({
+				action: 'move',
+			})
+			return
+		}
+		window.setTimeout(() => this.setState({ action: 'move' }), 100)
     this.setState({
-      // ...game.movePlayer(this.state, direction),
+      ...omit(['success'], attack),
       direction,
       action: 'attack',
     })

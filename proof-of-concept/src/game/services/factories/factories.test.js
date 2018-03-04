@@ -29,7 +29,7 @@ describe('Factories', () => {
 
   test('player factory', () => {
     expect(player({})).toHaveProperty('hp')
-    expect(player({})).toHaveProperty('deck')
+    expect(player({})).toHaveProperty('deckBlueprint')
     expect(player({})).toHaveProperty('x')
     expect(player({})).toHaveProperty('y')
   })

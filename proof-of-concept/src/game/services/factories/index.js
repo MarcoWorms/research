@@ -1,4 +1,5 @@
 import {
+  flatten,
   merge,
   propEq,
 } from 'ramda'
@@ -27,33 +28,40 @@ const attack = ({ name }) => {
   }
 }
 
+const deckBlueprint = [
+  {
+    name: 'Tackle',
+    amount: 7,
+  },
+  {
+    name: 'Slam',
+    amount: 3,
+  },
+  {
+    name: 'Wrath',
+    amount: 1,
+  },
+]
+
 const player = merge({
   x: 1,
   y: 1,
   hp: 10,
-  shape: [
-    [0],
-  ],
-  deck: [
-    {
-      name: 'Tackle',
-      amount: 7,
-    },
-    {
-      name: 'Slam',
-      amount: 3,
-    },
-    {
-      name: 'Wrath',
-      amount: 1,
-    },
-  ],
+  maxHp: 10,
+  energy: 0,
+  deckBlueprint,
 })
+
+const deck = deckBlueprint =>
+  flatten(deckBlueprint.map(({ name, amount }) =>
+    Array.from({ length: amount }).map(() => attack({ name }))
+  ))
 
 export default {
   field,
   player,
   enemy,
   attack,
+  deck,
 }
 

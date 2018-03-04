@@ -24,25 +24,25 @@ describe('Game', () => {
     it('should move the player up', () => {
       const state = game.newGameState()
       const newState = game.movePlayer(state, 'up')
-      expect(newState.player.y).toBe(4)
+      expect(newState.player.y).toBe(state.player.y - 1)
     })
 
     it('should move the player down', () => {
       const state = game.newGameState()
       const newState = game.movePlayer(state, 'down')
-      expect(newState.player.y).toBe(6)
+      expect(newState.player.y).toBe(state.player.y + 1)
     })
 
     it('should move the player right', () => {
       const state = game.newGameState()
       const newState = game.movePlayer(state, 'right')
-      expect(newState.player.x).toBe(2)
+      expect(newState.player.x).toBe(state.player.x + 1)
     })
 
     it('should not move the player left because it overlaps wall', () => {
       const state = game.newGameState()
       const newState = game.movePlayer(state, 'left')
-      expect(newState.player.x).toBe(1)
+      expect(newState.player.x).toBe(state.player.x - 1)
     })
 
   })

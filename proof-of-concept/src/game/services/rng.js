@@ -1,3 +1,8 @@
+import {
+	pipe,
+  sort,
+} from 'ramda'
+
 const buildArray = length => Array.from({ length })
 
 const rollDice = faces =>
@@ -13,9 +18,18 @@ const chancePass = chance =>
 const pickRandom = array =>
     array[Math.floor(Math.random(array.length))]
 
-module.exports = {
+const shuffle = pipe(
+	sort(() => 0.5 - Math.random()),
+	sort(() => 0.5 - Math.random()),
+	sort(() => 0.5 - Math.random()),
+	sort(() => 0.5 - Math.random()),
+	sort(() => 0.5 - Math.random())
+)
+
+export default {
   rollDice,
   rollDices,
   chancePass,
   pickRandom,
+  shuffle,
 }
